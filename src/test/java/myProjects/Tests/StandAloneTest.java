@@ -17,7 +17,6 @@ public class StandAloneTest {
 
 	public static void main(String[] args) {
 		
-		String productName = "iphone 13 pro";
 
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
@@ -36,7 +35,7 @@ public class StandAloneTest {
 		List<WebElement> products = driver.findElements(By.className("mb-3"));
 		for (WebElement product : products) {
 			String productText = product.findElement(By.tagName("b")).getText();
-			if(productText.equalsIgnoreCase(productName)) {
+			if(productText.equalsIgnoreCase("iphone 13 pro")) {
 				product.findElement(By.className("w-10")).click();
 			}
 		}
@@ -48,7 +47,7 @@ public class StandAloneTest {
 		
 		driver.findElement(By.xpath("//button[@routerlink='/dashboard/cart']")).click();
 		String CartItem = driver.findElement(By.cssSelector("div[class='cartSection'] h3")).getText();
-		if(CartItem.equalsIgnoreCase(productName)) {
+		if(CartItem.equalsIgnoreCase("iphone 13 pro")) {
 			driver.findElement(By.cssSelector("li[class='totalRow'] button")).click();
 		}
 		
